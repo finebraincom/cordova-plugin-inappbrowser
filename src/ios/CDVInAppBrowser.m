@@ -423,6 +423,20 @@
     }
 }
 
+// ------ share button handling (1) -- begin
+- (void)browserShare
+{
+    if (self.callbackId != nil) {
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
+                                                      messageAsDictionary:@{@"type":@"share"}];
+        [pluginResult setKeepCallback:[NSNumber numberWithBool:YES]];
+    
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
+    }
+}
+// ------ share button handling (1) -- end
+
+
 @end
 
 #pragma mark CDVInAppBrowserViewController
@@ -549,7 +563,18 @@
     self.backButton.enabled = YES;
     self.backButton.imageInsets = UIEdgeInsetsZero;
 
-    [self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.backButton, fixedSpaceButton, self.forwardButton]];
+    // ------ share button handling (2) -- begin
+    self.shareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(share)];
+    self.shareButton.enabled = YES;
+    // ------ share button handling (2) -- end
+
+    [self.toolbar setItems:@[
+        self.closeButton, flexibleSpaceButton, 
+    // ------ share button handling (3) -- begin
+        self.shareButton,
+    // ------ share button handling (3) -- end
+        self.backButton,  fixedSpaceButton, 
+        self.forwardButton]];
 
     self.view.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.toolbar];
@@ -723,6 +748,16 @@
         }
     });
 }
+
+// ------ share button handling (4) -- begin
+- (void)share // share button
+{
+    //NSLog(@"button SHARE pressed");
+    if ((self.navigationDelegate != nil) && [self.navigationDelegate respondsToSelector:@selector(browserShare)]) {
+        [self.navigationDelegate browserShare];
+    }
+}
+// ------ share button handling (4) -- end
 
 - (void)navigateTo:(NSURL*)url
 {

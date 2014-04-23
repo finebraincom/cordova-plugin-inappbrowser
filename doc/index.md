@@ -26,6 +26,8 @@ This plugin provides a web browser view that displays when calling `window.open(
 __NOTE__: The InAppBrowser window behaves like a standard web browser,
 and can't access Cordova APIs.
 
+__NOTE__: in the toolbar added button 'Share'. Clicking on ot fires 'share' event.
+
 ## Installation
 
     cordova plugin add org.apache.cordova.inappbrowser
@@ -115,6 +117,7 @@ The object returned from a call to `window.open`.
   - __loadstop__: event fires when the `InAppBrowser` finishes loading a URL.
   - __loaderror__: event fires when the `InAppBrowser` encounters an error when loading a URL.
   - __exit__: event fires when the `InAppBrowser` window is closed.
+  - __share__: event fires when button `Share` is clicked.
 
 - __callback__: the function that executes when the event fires. The function is passed an `InAppBrowserEvent` object as a parameter.
 
