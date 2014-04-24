@@ -26,8 +26,6 @@ This plugin provides a web browser view that displays when calling `window.open(
 __NOTE__: The InAppBrowser window behaves like a standard web browser,
 and can't access Cordova APIs.
 
-__NOTE__: in the toolbar added button 'Share'. Clicking on ot fires 'share' event.
-
 ## Installation
 
     cordova plugin add org.apache.cordova.inappbrowser
@@ -76,6 +74,7 @@ instance, or the system browser.
     - __presentationstyle__:  Set to `pagesheet`, `formsheet` or `fullscreen` to set the [presentation style](http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle) (defaults to `fullscreen`).
     - __transitionstyle__: Set to `fliphorizontal`, `crossdissolve` or `coververtical` to set the [transition style](http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle) (defaults to `coververtical`).
     - __toolbarposition__: Set to `top` or `bottom` (default is `bottom`). Causes the toolbar to be at the top or bottom of the window.
+    - __sharebutton__: Add sharing button in the toolbar with using label from the option value (pressing the button triggers 'share' event.
 
 ### Supported Platforms
 

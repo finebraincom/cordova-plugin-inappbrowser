@@ -564,17 +564,14 @@
     self.backButton.imageInsets = UIEdgeInsetsZero;
 
     // ------ share button handling (2) -- begin
-    self.shareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(share)];
-    self.shareButton.enabled = YES;
+    if(_browserOptions.sharebutton != nil){
+        self.shareButton = [[UIBarButtonItem alloc] initWithTitle:_browserOptions.sharebutton style:UIBarButtonItemStylePlain target:self action:@selector(share)];
+        self.shareButton.enabled = YES;
+        [self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.shareButton, self.backButton,  fixedSpaceButton, self.forwardButton]];
+    }else{
+        [self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.backButton,  fixedSpaceButton, self.forwardButton]];
+    }
     // ------ share button handling (2) -- end
-
-    [self.toolbar setItems:@[
-        self.closeButton, flexibleSpaceButton, 
-    // ------ share button handling (3) -- begin
-        self.shareButton,
-    // ------ share button handling (3) -- end
-        self.backButton,  fixedSpaceButton, 
-        self.forwardButton]];
 
     self.view.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.toolbar];
@@ -749,7 +746,7 @@
     });
 }
 
-// ------ share button handling (4) -- begin
+// ------ share button handling (3) -- begin
 - (void)share // share button
 {
     //NSLog(@"button SHARE pressed");
@@ -757,7 +754,7 @@
         [self.navigationDelegate browserShare];
     }
 }
-// ------ share button handling (4) -- end
+// ------ share button handling (3) -- end
 
 - (void)navigateTo:(NSURL*)url
 {
