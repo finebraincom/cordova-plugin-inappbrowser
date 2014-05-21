@@ -503,6 +503,7 @@
 
     self.closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close)];
     self.closeButton.enabled = YES;
+    self.closeButton.tintColor = [UIColor colorWithWhite:1.000 alpha:1.000];
 
     UIBarButtonItem* flexibleSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 
@@ -567,6 +568,7 @@
     if(_browserOptions.sharebutton != nil){
         self.shareButton = [[UIBarButtonItem alloc] initWithTitle:_browserOptions.sharebutton style:UIBarButtonItemStylePlain target:self action:@selector(share)];
         self.shareButton.enabled = YES;
+        self.shareButton.tintColor = [UIColor colorWithWhite:1.000 alpha:1.000];
         [self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.shareButton, self.backButton,  fixedSpaceButton, self.forwardButton]];
     }else{
         [self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.backButton,  fixedSpaceButton, self.forwardButton]];
@@ -591,7 +593,8 @@
     self.closeButton = nil;
     self.closeButton = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
     self.closeButton.enabled = YES;
-    self.closeButton.tintColor = [UIColor colorWithRed:60.0 / 255.0 green:136.0 / 255.0 blue:230.0 / 255.0 alpha:1];
+//    self.closeButton.tintColor = [UIColor colorWithRed:60.0 / 255.0 green:136.0 / 255.0 blue:230.0 / 255.0 alpha:1];
+    self.closeButton.tintColor = [UIColor colorWithWhite:1.000 alpha:1.000];
 
     NSMutableArray* items = [self.toolbar.items mutableCopy];
     [items replaceObjectAtIndex:0 withObject:self.closeButton];
