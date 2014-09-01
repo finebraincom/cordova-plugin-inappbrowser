@@ -503,7 +503,7 @@
 
     self.closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close)];
     self.closeButton.enabled = YES;
-    self.closeButton.tintColor = [UIColor colorWithWhite:1.000 alpha:1.000];
+    self.closeButton.tintColor = [UIColor colorWithWhite:0.000 alpha:1.000];
 
     UIBarButtonItem* flexibleSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 
@@ -517,7 +517,7 @@
     self.toolbar.alpha = 1.000;
     self.toolbar.autoresizesSubviews = YES;
     self.toolbar.autoresizingMask = toolbarIsAtBottom ? (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin) : UIViewAutoresizingFlexibleWidth;
-    self.toolbar.barStyle = UIBarStyleBlackOpaque;
+    self.toolbar.barStyle = UIBarStyleDefault;
     self.toolbar.clearsContextBeforeDrawing = NO;
     self.toolbar.clipsToBounds = NO;
     self.toolbar.contentMode = UIViewContentModeScaleToFill;
@@ -551,7 +551,7 @@
     self.addressLabel.shadowOffset = CGSizeMake(0.0, -1.0);
     self.addressLabel.text = NSLocalizedString(@"Loading...", nil);
     self.addressLabel.textAlignment = NSTextAlignmentLeft;
-    self.addressLabel.textColor = [UIColor colorWithWhite:1.000 alpha:1.000];
+    self.addressLabel.textColor = [UIColor colorWithWhite:0.000 alpha:1.000];
     self.addressLabel.userInteractionEnabled = NO;
 
     NSString* frontArrowString = NSLocalizedString(@"►", nil); // create arrow from Unicode char
@@ -568,7 +568,7 @@
     if(_browserOptions.sharebutton != nil){
         self.shareButton = [[UIBarButtonItem alloc] initWithTitle:_browserOptions.sharebutton style:UIBarButtonItemStylePlain target:self action:@selector(share)];
         self.shareButton.enabled = YES;
-        self.shareButton.tintColor = [UIColor colorWithWhite:1.000 alpha:1.000];
+        self.shareButton.tintColor = [UIColor colorWithWhite:0.000 alpha:1.000];
         [self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.shareButton, self.backButton,  fixedSpaceButton, self.forwardButton]];
     }else{
         [self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.backButton,  fixedSpaceButton, self.forwardButton]];
@@ -594,7 +594,7 @@
     self.closeButton = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
     self.closeButton.enabled = YES;
 //    self.closeButton.tintColor = [UIColor colorWithRed:60.0 / 255.0 green:136.0 / 255.0 blue:230.0 / 255.0 alpha:1];
-    self.closeButton.tintColor = [UIColor colorWithWhite:1.000 alpha:1.000];
+    self.closeButton.tintColor = [UIColor colorWithWhite:0.000 alpha:1.000];
 
     NSMutableArray* items = [self.toolbar.items mutableCopy];
     [items replaceObjectAtIndex:0 withObject:self.closeButton];
