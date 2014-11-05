@@ -196,6 +196,7 @@
     UINavigationController* nav = [[UINavigationController alloc]
                                    initWithRootViewController:self.inAppBrowserViewController];
     nav.navigationBarHidden = YES;
+    nav.modalPresentationStyle = self.inAppBrowserViewController.modalPresentationStyle;
     // Run later to avoid the "took a long time" log message.
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.inAppBrowserViewController != nil) {
